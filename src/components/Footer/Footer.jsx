@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../images/logo.png";
 
 const Footer = () => (
-  <section className="footer w-2/3 bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md">
+  <section className="footer lg:w-2/3 sm:w-full bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md mb-3">
     <div className="logo">
       <Link to={ROUTES.HOME}>
         <svg

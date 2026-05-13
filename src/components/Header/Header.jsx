@@ -7,7 +7,7 @@ import Favorites from "../../images/favorites.svg";
 
 const Header = () => {
   return (
-    <div className="header flex justify-between items-center px-10 bg-neutral-800 text-gray-300 h-15 w-2/3 pt-2">
+    <div className="header h-15 sm:w-full lg:w-2/3 sm:px-5 flex justify-between items-center md:px-10 bg-neutral-800 text-gray-300 pt-2 -mb-10">
       <div className="logo">
         <Link to={ROUTES.HOME}>
           <svg
