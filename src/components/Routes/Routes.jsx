@@ -10,4 +10,4 @@ const AppRoutes = () => {
   );
 };
 
-export default Routes;
+export default AppRoutes;
