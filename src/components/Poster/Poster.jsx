@@ -5,8 +5,8 @@ import MacBook from "../../images/macbook-pro.webp";
 
 const Poster = () => {
   return (
-    <Stack className="h-100 bg-[#0d1117] rounded-md p-10 relative ">
-      <div className="title w-full sm:text-[4.1rem] md:text-[5.1rem] lg:text-[2.8rem] lg:mb-10 xl:mb-0 xl:text-[3.7rem] 2xl:text-[4.6rem] font-black font-anton -mt-10 text-neutral-800">
+    <Stack className="h-auto w-auto bg-[#0d1117] rounded-md p-10 relative flex justify-between">
+      <div className="title w-full sm:text-[4.1rem] md:text-[5.1rem] lg:mb-10 xl:mb-0 xl:text-[3.7rem] 2xl:text-[4.6rem] font-black font-anton -mt-10 text-indigo-800">
         BIG SALE 20%
       </div>
       <div className="product">
@@ -29,7 +29,7 @@ const Poster = () => {
         </div>
         <div className="image">
           <img
-            className="max-w-2/4 absolute -right-7 top-36 md:top-25 md:-right-5 lg:top-40 xl:top-20 xl:-right-25 z-1"
+            className="max-w-2/5 absolute -right-7 top-36 md:top-25 md:-right-5 lg:top-40 xl:top-20 xl:-right-25 z-1"
             src={MacBook}
             alt=""
           />

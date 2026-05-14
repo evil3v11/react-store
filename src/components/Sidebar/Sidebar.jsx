@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);
-  let visibleCategories = 5
+  let visibleCategories = 5;
   return (
-    <section className="sidebar h-100 sm:invisible sm:absolute lg:visible lg:relative lg:w-full md:w-1/3 bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between relative overflow-hidden">
+    <section className="sidebar h-auto sm:invisible sm:absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between relative">
       <div className="title font-extrabold text-xl">CATEGORIES</div>
       <nav className="absolute top-17.5">
         <ul className="menu">

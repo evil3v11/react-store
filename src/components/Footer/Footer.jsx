@@ -22,7 +22,7 @@ const Footer = () => (
 
     <div className="rights font-extrabold text-[#888888] text-sm">
       Developed by{" "}
-      <a className="decoration-none text-indigo-700" href="#">
+      <a className="decoration-none text-indigo-700" href="https://github.com/evil3v11">
         Evil
       </a>
     </div>
