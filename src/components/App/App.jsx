@@ -25,7 +25,7 @@ const App = () => {
   return (
     <div className="bg-neutral-800 h-auto font-[roboto] flex flex-col items-center gap-15 px-5">
       <Header />
-      <div className="lg:w-2/3 sm:w-full grid lg:grid-cols-[auto_1fr] sm:grid-cols-1 grid-rows-2 gap-5 -mb-10">
+      <div className="lg:w-2/3 sm:w-full h-auto grid lg:grid-cols-[20%_80%] sm:grid-cols-1 grid-rows-auto gap-5 -mb-10 ">
         <Sidebar />
         <Poster />
         <AppRoutes />
