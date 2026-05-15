@@ -13,20 +13,20 @@ const Products = ({ title, products = [], amount }) => {
         </h2>
       )}
       <div className="list grid 2xl:grid-cols-5 sm:grid-cols-2 sm:grid-rows-auto gap-x-5">
-        {list.map(({ id, images, title, category: { name: cat }, price }) => (
+        {list.map(({ id, images, title, category: { name: cat }, price, slug }) => (
           <Link
             key={id}
             to={`/products/${id}`}
-            className="product bg-neutral-800 sm:my-5"
+            className="product bg-neutral-800 sm:my-5 md:my-0"
           >
             <img
               className="image h-auto w-full object-cover sm:object-cover"
               src={images[0]}
             />
 
-            <div className="wrapper h-auto relative flex flex-col justify-between p-3 gap-y-5">
+            <div className="wrapper h-auto relative flex flex-col justify-around p-3 gap-y-5">
               <div>
-                <h3 className="title text-amber-50 font-bold">{title}</h3>
+                <h3 className="title text-amber-50 font-bold text-[1.3rem]">{title}</h3>
                 <div className="product-category text-[#999999] text-sm">{cat.toUpperCase()}</div>
               </div>
 
@@ -44,7 +44,7 @@ const Products = ({ title, products = [], amount }) => {
               </div>
 
               <div className="purchases text-[#888888] absolute bottom-3 right-3">
-                {Math.floor(Math.random() * 20 + 1)} bought
+                {Math.floor(Math.random() * 20 + 1)} purchased
               </div>
             </div>
           </Link>
