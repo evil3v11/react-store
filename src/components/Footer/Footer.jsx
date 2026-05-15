@@ -1,10 +1,10 @@
 import React from "react";
-import ROUTES from "../Routes/Routes";
+import { ROUTES } from "../../utils/routes";
 import { Link } from "react-router-dom";
 import Logo from "../../images/logo.png";
 
 const Footer = () => (
-  <section className="footer lg:w-2/3 sm:w-full bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md mb-3">
+  <section className="footer lg:w-4/5 w-full bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md mb-3">
     <div className="logo">
       <Link to={ROUTES.HOME}>
         <svg
@@ -22,7 +22,10 @@ const Footer = () => (
 
     <div className="rights font-extrabold text-[#888888] text-sm">
       Developed by{" "}
-      <a className="decoration-none text-indigo-700" href="https://github.com/evil3v11">
+      <a
+        className="decoration-none text-indigo-700"
+        href="https://github.com/evil3v11"
+      >
         Evil
       </a>
     </div>

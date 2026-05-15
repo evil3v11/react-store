@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ROUTES from "../Routes/Routes";
+import { ROUTES } from "../../utils/routes";
 import Avatar from "../../images/avatar.png";
 import Logo from "../../images/logo.png";
 import Favorites from "../../images/favorites.svg";
 
 const Header = () => {
   return (
-    <div className="header h-15 sm:w-full lg:w-2/3 sm:px-5 flex justify-between items-center md:px-10 bg-neutral-800 text-gray-300 pt-2 -mb-10">
+    <div className="header h-15 sm:w-full lg:w-4/5 sm:px-5 flex justify-between items-center md:px-10 bg-neutral-800 text-gray-300 pt-2 -mb-10">
       <div className="logo">
         <Link to={ROUTES.HOME}>
           <svg

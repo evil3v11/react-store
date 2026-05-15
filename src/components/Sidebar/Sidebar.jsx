@@ -7,7 +7,7 @@ const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);
   let visibleCategories = 5;
   return (
-    <section className="sidebar h-auto sm:invisible sm:absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between relative">
+    <section className="sidebar h-full invisible absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between">
       <div className="title font-extrabold text-xl">CATEGORIES</div>
       <nav className="absolute top-17.5">
         <ul className="menu">
@@ -26,7 +26,7 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <div className="footer text-[#888888] flex justify-between sm:flex-col lg:flex-row text-sm gap-5">
+      <div className="footer text-[#888888] flex justify-between sm:flex-col xl:flex-row text-sm xl:gap-5">
         <a href="/help" target="_blank" className="link ">
           Help
         </a>

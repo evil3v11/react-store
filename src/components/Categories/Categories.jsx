@@ -12,7 +12,7 @@ const Categories = ({ title, products = [], amount }) => {
         {list.map(({ id, name, image }) => (
           <Link
             key={id}
-            className="item-wrapper h-auto p-3"
+            className="item-wrapper h-auto gap-5"
             to={`categories/${id}`}
           >
             <img
@@ -20,7 +20,7 @@ const Categories = ({ title, products = [], amount }) => {
               alt={name}
               className="image h-auto object-cover"
             />
-            <h3 className="title text-amber-50 font-bold text-center">{name}</h3>
+            <h3 className="title text-amber-50 xl:mb-0 sm:my-3 font-bold text-center">{name}</h3>
           </Link>
         ))}
       </div>

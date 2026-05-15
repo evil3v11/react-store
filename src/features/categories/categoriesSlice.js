@@ -26,7 +26,7 @@ const categoriesSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getCategories.rejected, (state) => {
-      state.isLoading = true;
+      state.isLoading = false;
     });
     builder.addCase(getCategories.fulfilled, (state, { payload }) => {
 			state.isLoading = false

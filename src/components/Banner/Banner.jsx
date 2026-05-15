@@ -2,11 +2,12 @@ import { Button } from "@mui/material";
 import React from "react";
 import Sneakers from "../../images/sneaker.png";
 import Handheld from "../../images/handheld.png";
+import Frog from "../../images/Frog.webp";
 
 const Banner = () => {
   return (
-    <section className="banner flex w-full p-0 h-100 rounded-md">
-      <div className="left bg-[#0d1117] w-[50%] relative h-auto p-5 text-indigo-800 text-center flex flex-col justify-center items-center gap-y-5">
+    <section className="banner flex h-100 w-full rounded-md col-span-full">
+      <div className="left bg-[#0d1117] relative w-[50%] h-auto p-5 text-indigo-800 text-center flex flex-col justify-around items-center gap-y-5">
         <p className="banner-content text-7xl font-extralight">
           NEW YEAR<span className="block text-[9.5rem] font-light">SALE</span>
         </p>
@@ -17,10 +18,10 @@ const Banner = () => {
         </Button>
       </div>
 
-      <div className="right bg-amber-50 w-[50%] h-auto p-5">
-        <img src={null} alt="" className="" />
-        <p className="new-years-discount-price">
-          save up to <span>50%</span> off
+      <div className="right bg-amber-50 w-[50%] h-auto p-5 flex flex-col justify-around items-center">
+        <img src={Frog} alt="Froggy" className="object-cover h-[90%]" />
+        <p className="new-years-discount-price text-[1.2rem]">
+          save up to <span className="text-indigo-800 font-bold">50%</span> off
         </p>
       </div>
     </section>
