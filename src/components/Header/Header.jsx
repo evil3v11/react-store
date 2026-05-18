@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
 import { ROUTES } from "../../utils/routes";
+
+import { useDispatch, useSelector } from "react-redux";
 import { toggleForm } from "../../features/user/userSlice";
+import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 import Avatar from "../../images/avatar.png";
 import { CART_ICON, FAVORITES, MAIN_LOGO } from "../../utils/svg";
+import { SCROLLBAR } from "../../utils/constants";
+import { CircularProgress } from "@mui/material";
 
 const Header = () => {
   const { currentUser } = useSelector(({ user }) => user);
@@ -14,8 +17,10 @@ const Header = () => {
     name: currentUser?.name,
     avatar: currentUser?.avatar,
   });
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { data, isLoading } = useGetProductsQuery({ title: query });
 
   useEffect(() => {
     if (!currentUser) return;
@@ -25,6 +30,10 @@ const Header = () => {
   const handleClick = () => {
     if (!currentUser) dispatch(toggleForm(true));
     else navigate(ROUTES.PROFILE);
+  };
+
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
   };
 
   return (
@@ -41,20 +50,39 @@ const Header = () => {
         <div className="username">{userData.name ?? "Guest"}</div>
       </div>
 
-      <form className="form">
+      <form className="form relative">
         <div className="form-icon"></div>
-        <div className="input text-gray-300 p-2">
-          <input
-            className="w-xs focus:outline-none bg-[#0d1117] p-2 rounded-xl"
-            type="search"
-            name="search"
-            placeholder="&#128269; Search for anything..."
-            autoComplete="off"
-            // value={}
-            onChange={() => {}}
-          />
-        </div>
-        <div className="box"></div>
+        <input
+          className="w-xs focus:outline-none bg-[#0d1117] p-2 rounded-xl"
+          type="search"
+          name="search"
+          placeholder="&#128269; Search for anything..."
+          autoComplete="off"
+          value={query}
+          onChange={handleSearch}
+        />
+        {query && (
+          <div
+            className={`box h-auto max-h-75 w-full bg-[#666] p-3 absolute z-5 rounded-md overflow-y-auto ${SCROLLBAR}`}
+          >
+            <p>{data?.length} items found</p>
+            {isLoading ? (
+              <CircularProgress />
+            ) : (
+              data?.map(({ title, images, id }) => (
+                <Link
+                  key={id}
+                  to={`/products/${id}`}
+                  className="flex gap-5 my-3 items-center"
+                  onClick={() => setQuery("")}
+                >
+                  <img className="max-w-1/3" src={images[0]} alt={title} />
+                  {title}
+                </Link>
+              ))
+            )}
+          </div>
+        )}
       </form>
 
       <div className="favorites flex flex-row gap-5">

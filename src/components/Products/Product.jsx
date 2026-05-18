@@ -6,7 +6,7 @@ import {
   addItemToCart,
   addItemToFavorites,
 } from "../../features/user/userSlice";
-import { SIDEBAR } from "../../utils/constants";
+import { SCROLLBAR } from "../../utils/constants";
 
 const randomShoeSizes = [4, 5, 6];
 
@@ -38,7 +38,7 @@ const Product = (item) => {
         className="rounded-md object-cover"
       />
 
-      <div className={`rounded-md overflow-y-auto h-109 ${SIDEBAR}`}>
+      <div className={`rounded-md overflow-y-auto h-109 ${SCROLLBAR}`}>
         <div className="space-y-2">
           {images.map((image, i) => (
             <img
