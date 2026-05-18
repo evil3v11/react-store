@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { CircularProgress } from "@mui/material";
-import { SIDEBAR } from "../../utils/constants";
+import { SCROLLBAR } from "../../utils/constants";
 
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);
@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <section className="sidebar h-100 invisible absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col gap-10">
       <div className="title font-extrabold text-xl">CATEGORIES</div>
-      <nav className={` overflow-y-auto ${SIDEBAR} `}>
+      <nav className={` overflow-y-auto ${SCROLLBAR} `}>
         <ul className="menu space-y-2 text-sm">
           {list.map(({ id, name }) => (
             <li key={id}>
