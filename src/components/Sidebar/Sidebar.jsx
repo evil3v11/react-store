@@ -1,17 +1,20 @@
-import { CircularProgress } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
+import { CircularProgress } from "@mui/material";
+import { SIDEBAR } from "../../utils/constants";
+
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);
   let visibleCategories = 5;
+
   return (
-    <section className="sidebar h-full invisible absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between">
+    <section className="sidebar h-100 invisible absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col gap-10">
       <div className="title font-extrabold text-xl">CATEGORIES</div>
-      <nav className="absolute top-17.5">
-        <ul className="menu">
-          {list.slice(0, visibleCategories).map(({ id, name }) => (
+      <nav className={` overflow-y-auto ${SIDEBAR} `}>
+        <ul className="menu space-y-2 text-sm">
+          {list.map(({ id, name }) => (
             <li key={id}>
               <NavLink
                 className={({ isActive }) =>
