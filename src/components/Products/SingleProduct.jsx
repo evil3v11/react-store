@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useGetProductQuery } from "../../features/api/apiSlice";
-import { ROUTES } from "../../utils/routes";
-import Product from "./Product";
-import { CircularProgress } from "@mui/material";
+
 import { useDispatch, useSelector } from "react-redux";
-import Products from "./Products";
 import { getRelatedProducts } from "../../features/products/productsSlice";
+import { useGetProductQuery } from "../../features/api/apiSlice";
+
+import { useNavigate, useParams } from "react-router-dom";
+import { ROUTES } from "../../utils/routes";
+
+import { CircularProgress } from "@mui/material";
+import Product from "./Product";
+import Products from "./Products";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {
-    products: { related },
-  } = useSelector((state) => state);
+  const { products: { related } } = useSelector((state) => state);
   const { data, isLoading, isFetching, isSuccess } = useGetProductQuery({ id });
 
   useEffect(() => {

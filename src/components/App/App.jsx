@@ -14,6 +14,7 @@ import { getCategories } from "../../features/categories/categoriesSlice.js";
 import { getProducts } from "../../features/products/productsSlice.js";
 import Poster from "../Poster/Poster.jsx";
 import { Stack } from "@mui/material";
+import UserForm from "../User/UserForm.jsx";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,13 +25,13 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="bg-neutral-800 h-auto w-full font-[roboto] flex flex-col items-center gap-15 px-5">
+    <div className="min-h-screen w-full font-[roboto] flex flex-col justify-center items-center gap-15 px-5 relative">
       <Header />
-      <div className="lg:w-4/5 sm:w-full h-auto grid lg:grid-cols-[25%_1fr] sm:grid-cols-1 grid-rows-auto gap-5 -mb-10 ">
+      <UserForm />
+      <main className="flex-1 lg:w-4/5 sm:w-full h-full grid lg:grid-cols-[20%_1fr] sm:grid-cols-1 grid-rows-auto gap-5">
         <Sidebar />
-        <Poster />
         <AppRoutes />
-      </div>
+      </main>
       <Footer />
     </div>
   );

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { ROUTES } from "../../utils/routes";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/routes";
 import {
   addItemToCart,
   addItemToFavorites,
 } from "../../features/user/userSlice";
+import { SIDEBAR } from "../../utils/constants";
 
 const randomShoeSizes = [4, 5, 6];
 
 const Product = (item) => {
   const { title, images, price, description } = item;
-
   const [currentImage, setCurrentImage] = useState();
   const [currentSize, setCurrentSize] = useState();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,29 +30,29 @@ const Product = (item) => {
   };
 
   return (
-    <div className="product bg-[#0d1117] rounded-md flex sm:flex-col 2xl:flex-row p-5 gap-3 col-span-full items-center">
-      <div className="flex gap-5 h-auto max-w-300 my-0 mx-auto">
-        <img
-          src={currentImage}
-          alt={title}
-          className="rounded-md object-cover max-w-125"
-        />
-        <div className="h-125 w-50 rounded-md overflow-y-auto xl:mr-10 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent hover:scrollbar-thumb-zinc-600">
-          <div className="flex flex-col gap-5 pr-2 h-full w-full">
-            {images.map((image, i) => (
-              <div key={i} className="">
-                <img
-                  className="rounded-md object-cover cursor-pointer"
-                  src={image}
-                  onClick={() => setCurrentImage(image)}
-                />
-              </div>
-            ))}
-          </div>
+    <div className="product bg-[#0d1117] rounded-md col-span-auto grid grid-cols-[2fr_1fr_2fr] grid-row-1 p-5 gap-5">
+      <img
+        src={currentImage}
+        alt={title}
+        loading="lazy"
+        className="rounded-md object-cover"
+      />
+
+      <div className={`rounded-md overflow-y-auto h-109 ${SIDEBAR}`}>
+        <div className="space-y-2">
+          {images.map((image, i) => (
+            <img
+              key={i}
+              className="rounded-md object-cover cursor-pointer h-50"
+              src={image}
+              onClick={() => setCurrentImage(image)}
+              loading="lazy"
+            />
+          ))}
         </div>
       </div>
 
-      <div className="info h-full flex flex-col justify-around text-amber-50 sm:gap-y-5 lg:gap-0 col-span-full">
+      <div className="info h-full flex flex-col justify-around text-amber-50 gap-y-5">
         <h1 className="product-title">{title}</h1>
         <div className="product-price font-bold text-2xl">{price}$</div>
         <div className="product-color">
