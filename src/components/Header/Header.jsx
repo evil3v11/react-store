@@ -7,21 +7,22 @@ import { toggleForm } from "../../features/user/userSlice";
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 import Avatar from "../../images/avatar.png";
-import { CART_ICON, FAVORITES, MAIN_LOGO } from "../../utils/svg";
+import { CART_ICON, FAVORITES, MAIN_LOGO, MENU_SVG } from "../../utils/svg";
 import { SCROLLBAR } from "../../utils/constants";
 import { CircularProgress } from "@mui/material";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { currentUser } = useSelector(({ user }) => user);
   const [userData, setUserData] = useState({
     name: currentUser?.name,
     avatar: currentUser?.avatar,
   });
+  const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { data, isLoading } = useGetProductsQuery({ title: query });
-
   useEffect(() => {
     if (!currentUser) return;
     setUserData(currentUser);
@@ -34,6 +35,10 @@ const Header = () => {
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
+  };
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -85,7 +90,11 @@ const Header = () => {
         )}
       </form>
 
-      <div className="favorites flex flex-row gap-5">
+      <div className="favorites flex justify-between w-40 gap-5">
+        <div className="favorites w-7 h-7" onClick={toggleSidebar}>
+          {MENU_SVG}
+          <Sidebar isOpen={isOpen} />
+        </div>
         <Link to={ROUTES.HOME} className="favorites w-7 h-7">
           {FAVORITES}
         </Link>

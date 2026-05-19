@@ -29,7 +29,6 @@ const App = () => {
       <Header />
       <UserForm />
       <main className="flex-1 lg:w-4/5 sm:w-full h-full grid lg:grid-cols-[20%_1fr] sm:grid-cols-1 grid-rows-auto gap-5">
-        <Sidebar />
         <AppRoutes />
       </main>
       <Footer />

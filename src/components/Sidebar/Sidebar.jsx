@@ -5,12 +5,11 @@ import { NavLink } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import { SCROLLBAR } from "../../utils/constants";
 
-const Sidebar = () => {
+const Sidebar = ({isOpen}) => {
   const { list } = useSelector(({ categories }) => categories);
-  let visibleCategories = 5;
 
   return (
-    <section className="sidebar h-100 invisible absolute lg:visible lg:relative bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col gap-10">
+    <section className={`sidebar h-100 ${isOpen ? 'w-50 sm:visible' : 'opacity-0'} lg:visible lg:relative sm:invisible sm:absolute bg-[#0d1117] rounded-md p-5 text-amber-50 flex flex-col justify-between gap-10 z-2`}>
       <div className="title font-extrabold text-xl">CATEGORIES</div>
       <nav className={` overflow-y-auto ${SCROLLBAR} `}>
         <ul className="menu space-y-2 text-sm">
