@@ -12,7 +12,7 @@ import {
 import FooterLink from "./FooterLink";
 
 const Footer = () => (
-  <section className="footer lg:w-4/5 w-full bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md mb-3">
+  <section className="footer lg:w-4/5 w-full bg-[#0d1117] flex justify-between items-center px-5 py-2 rounded-md mb-3 -mt-10">
     <div className="logo">
       <Link to={ROUTES.HOME}>{MAIN_LOGO}</Link>
     </div>

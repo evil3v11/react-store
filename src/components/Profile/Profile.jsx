@@ -36,7 +36,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="user-profile h-100 bg-[#0d1117] text-amber-50 rounded-md flex flex-col p-5 gap-y-2 justify-around items-center">
+    <div className="user-profile h-100 bg-[#0d1117] text-amber-50 rounded-md flex flex-col p-5 gap-y-2 justify-around items-center col-span-full">
       <h2>Update your information</h2>
       {currentUser ? (
         <form

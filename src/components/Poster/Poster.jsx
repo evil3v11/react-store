@@ -5,7 +5,7 @@ import MacBook from "../../images/macbook-pro.webp";
 
 const Poster = () => {
   return (
-    <Stack className=" w-full bg-[#0d1117] rounded-md p-10 relative flex justify-between">
+    <Stack className="h-100 w-full bg-[#0d1117] rounded-md p-10 relative flex justify-between col-span-full">
       <div className="title w-full sm:text-[4.1rem] lg:mb-10 xl:mb-0 xl:text-[3.7rem] 2xl:text-[4.6rem] font-black font-anton -mt-10 text-indigo-800">
         BIG SALE 20%
       </div>
