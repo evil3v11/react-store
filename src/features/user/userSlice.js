@@ -67,12 +67,15 @@ const userSlice = createSlice({
       if (foundItem) {
         newCart = newCart.map((item) => {
           return item.id === payload.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: payload.quantity }
             : item;
         });
       } else newCart.push({ ...payload, quantity: 1 });
 
       state.cart = newCart;
+    },
+    removeItemFromCart: (state, { payload }) => {
+      state.cart = state.cart.filter(({ id }) => id !== payload.id);
     },
     addItemToFavorites: (state, { payload }) => {
       let newFavorites = [...state.favorites];
@@ -101,7 +104,12 @@ const userSlice = createSlice({
   },
 });
 
-export const { addItemToCart, addItemToFavorites, toggleForm, toggleFormType } =
-  userSlice.actions;
+export const {
+  addItemToCart,
+  addItemToFavorites,
+  removeItemFromCart,
+  toggleForm,
+  toggleFormType,
+} = userSlice.actions;
 
 export default userSlice.reducer;

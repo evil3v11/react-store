@@ -11,7 +11,7 @@ const Categories = ({ title, products = [], amount }) => {
         {list.map(({ id, name, image }) => (
           <Link
             key={id}
-            className="item-wrapper h-auto gap-5"
+            className="item-wrapper h-auto flex flex-col items-center my-2 gap-y-2"
             to={`categories/${id}`}
           >
             <img src={image} alt={name} className="image h-auto object-cover" />

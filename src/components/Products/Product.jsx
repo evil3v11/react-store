@@ -30,7 +30,7 @@ const Product = (item) => {
   };
 
   return (
-    <div className="product bg-[#0d1117] rounded-md col-span-auto grid grid-cols-[2fr_1fr_2fr] grid-row-1 p-5 gap-5">
+    <div className="product bg-[#0d1117] rounded-md col-span-full grid grid-cols-[2fr_1fr_2fr] grid-row-1 p-5 gap-5">
       <img
         src={currentImage}
         alt={title}

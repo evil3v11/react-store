@@ -28,7 +28,7 @@ const App = () => {
     <div className="min-h-screen w-full font-[roboto] flex flex-col justify-center items-center gap-15 px-5 relative scrollbar-gutter-both">
       <Header />
       <UserForm />
-      <main className="flex-1 lg:w-4/5 sm:w-full h-full grid lg:grid-cols-[20%_1fr] sm:grid-cols-1 grid-rows-auto gap-5">
+      <main className="flex-1 lg:w-4/5 sm:w-full  lg:grid-cols-[20%_1fr] sm:grid-cols-1 grid-rows-auto space-y-5">
         <AppRoutes />
       </main>
       <Footer />
