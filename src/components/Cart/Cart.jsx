@@ -29,7 +29,7 @@ const Cart = () => {
       ) : (
         <>
           <div
-            className={`cart h-100 space-y-5 overflow-y-auto sm:${SCROLLBAR} pr-3`}
+            className={`cart h-100 space-y-5 overflow-y-auto sm:${SCROLLBAR}`}
           >
             {cart.map((item) => {
               const { id, title, category, price, quantity, images } = item;
