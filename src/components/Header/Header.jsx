@@ -15,7 +15,7 @@ import Sidebar from "../Sidebar/Sidebar";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentUser } = useSelector(({ user }) => user);
+  const { currentUser, cart } = useSelector(({ user }) => user);
   const [userData, setUserData] = useState({
     name: currentUser?.name,
     avatar: currentUser?.avatar,
@@ -43,7 +43,16 @@ const Header = () => {
 
   return (
     <div className="header h-15 sm:w-full lg:w-4/5 sm:px-5 flex justify-between items-center md:px-10 bg-neutral-800 text-gray-300 pt-2 -mb-10">
-      <Link to={ROUTES.HOME}>{MAIN_LOGO}</Link>
+      <div className="flex items-center gap-x-2 relative">
+        <Link to={ROUTES.HOME}>{MAIN_LOGO}</Link>
+        <div
+          className="categories w-7 h-7 z-2 cursor-pointer"
+          onClick={toggleSidebar}
+        >
+          {MENU_SVG}
+        </div>
+        <Sidebar isOpen={isOpen} />
+      </div>
 
       <div
         className="info flex justify-center items-center cursor-pointer"
@@ -55,10 +64,10 @@ const Header = () => {
         <div className="username">{userData.name ?? "Guest"}</div>
       </div>
 
-      <form className="form relative">
+      <form className="form relative mx-1">
         <div className="form-icon"></div>
         <input
-          className="w-xs focus:outline-none bg-[#0d1117] p-2 rounded-xl"
+          className="w-75 focus:outline-none bg-[#0d1117] p-2 rounded-xl"
           type="search"
           name="search"
           placeholder="&#128269; Search for anything..."
@@ -90,19 +99,17 @@ const Header = () => {
         )}
       </form>
 
-      <div className="favorites flex justify-between w-40 gap-5">
-        <div className="favorites w-7 h-7" onClick={toggleSidebar}>
-          {MENU_SVG}
-          <Sidebar isOpen={isOpen} />
-        </div>
+      <div className="favorites flex justify-between gap-3">
         <Link to={ROUTES.HOME} className="favorites w-7 h-7">
           {FAVORITES}
         </Link>
         <Link to={ROUTES.CART} className="cart w-7 h-7 relative">
           {CART_ICON}
-          <span className="count bg-indigo-700 inline-flex justify-center items-center size-4 text-xs rounded-full absolute -top-2 -right-2">
-            2
-          </span>
+          {!!cart.length && (
+            <span className="count bg-indigo-700 inline-flex justify-center items-center size-4 text-xs rounded-full absolute -top-2 -right-2">
+              {cart.length}
+            </span>
+          )}
         </Link>
       </div>
     </div>

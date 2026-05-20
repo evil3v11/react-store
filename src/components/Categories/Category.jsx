@@ -35,8 +35,8 @@ const Category = () => {
   const { list } = useSelector(({ categories }) => categories);
   const { data, isLoading, isSuccess } = useGetProductsQuery(query);
 
-  console.log()
-  
+  console.log();
+
   useEffect(() => {
     if (!id) {
       navigate(ROUTES.HOME);
@@ -83,14 +83,11 @@ const Category = () => {
     });
   };
 
-  // const handleReset = () => {
-  //   setItems([]);
-  //   setHasEnded(false);
-  //   setFilters(queryParams);
-  //   setQuery((prev) => {
-  //     return { ...queryParams, ...filters };
-  //   });
-  // };
+  const handleReset = () => {
+    setFilters(filterParams);
+    setQuery(queryParams);
+    setHasEnded(false);
+  };
 
   return (
     <section className="space-y-5 flex flex-col items-center">
@@ -108,12 +105,14 @@ const Category = () => {
       ) : !isSuccess || !items.length ? (
         <div className="flex flex-col justify-center gap-5 text-amber-50 text-center">
           <span>No results</span>
-          <CategorySearchButton>Reset</CategorySearchButton>
+          <CategorySearchButton onClick={handleReset}>
+            Reset
+          </CategorySearchButton>
         </div>
       ) : (
         <Products title={category} products={items} amount={items.length} />
       )}
-      {!hasEnded  && (
+      {!hasEnded && (
         <CategorySearchButton onClick={handleLoadMore}>
           Load more
         </CategorySearchButton>
